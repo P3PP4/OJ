@@ -30,7 +30,7 @@ public class Main {
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			d = Integer.parseInt(st.nextToken()) - 1;
-			s = Integer.parseInt(st.nextToken());
+			s = Integer.parseInt(st.nextToken()) % N;
 			list.add(new int[] { d, s });
 		} // end of input
 		
@@ -76,7 +76,7 @@ public class Main {
 				A[cloud[0]][cloud[1]] += w[i];
 			}
 			
-			// 구름 생기고 물 제거 (스킬 썼던 칸에도 채워두고 전체 탐색)
+			// 구름 생기고 물 제거
 			check = new boolean[N][N];
 			for (int[] cloud : clouds) {
 				check[cloud[0]][cloud[1]] = true;
