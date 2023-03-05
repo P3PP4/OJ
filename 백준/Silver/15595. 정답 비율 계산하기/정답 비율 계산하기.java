@@ -22,9 +22,6 @@ public class Main {
 			st.nextToken();
 			String id = st.nextToken();
 			int result = Integer.parseInt(st.nextToken());
-			for (int j = 0; j < 4; j++) {
-				st.nextToken();
-			}
 			
 			if ("megalusion".equals(id) || pass.contains(id)) continue;
 			
