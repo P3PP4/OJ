@@ -32,11 +32,10 @@ public class Main {
 			}
 			if (a[0] * 2 < 99999) {
 				a[0] *= 2;
-				int x = 1;
-				while (x <= a[0]) x *= 10;
-				if (visited[a[0] - (x / 10)]) continue;
-				q.offer(new int[] { a[0] - (x / 10), a[1] + 1 });
-				visited[a[0] - (x / 10)] = true;
+				int x = (int) Math.pow(10, (int) Math.log10(a[0]));
+				if (visited[a[0] - x]) continue;
+				q.offer(new int[] { a[0] - x, a[1] + 1 });
+				visited[a[0] - x] = true;
 			}
 		}
 		
