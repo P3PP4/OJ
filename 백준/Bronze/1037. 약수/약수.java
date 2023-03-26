@@ -13,8 +13,8 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < num; i++) {
 			int input = Integer.parseInt(st.nextToken());
-			max = Math.max(max, input);
-			min = Math.min(min, input);
+			if (max < input) max = input;
+			if (min > input) min = input;
 		}
 		
 		System.out.print(min * max);
