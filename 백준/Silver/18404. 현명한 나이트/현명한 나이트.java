@@ -15,23 +15,13 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
-		int[][] map = new int[N + 1][N + 1];
 		int[][] visited = new int[N + 1][N + 1];
-		int[] time = new int[M + 1];
 		Queue<int[]> q = new LinkedList<>();
 		st = new StringTokenizer(br.readLine(), " ");
 		q.offer(new int[] { Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()) });
-		for (int i = 1; i <= M; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
-			int row = Integer.parseInt(st.nextToken());
-			int col = Integer.parseInt(st.nextToken());
-			map[row][col] = i;
-		}
 		
 		while (!q.isEmpty()) {
 			int[] a = q.poll();
-			
-			if (map[a[0]][a[1]] != 0) time[map[a[0]][a[1]]] = visited[a[0]][a[1]];
 			
 			for (int dir = 0; dir < 8; dir++) {
 				int nr = a[0] + dr[dir];
@@ -44,8 +34,9 @@ public class Main {
 			}
 		}
 		
-		for (int i = 1; i <= M; i++) {
-			sb.append(time[i]).append(" ");
+		for (int i = 0; i < M; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			sb.append(visited[Integer.parseInt(st.nextToken())][Integer.parseInt(st.nextToken())]).append(" ");
 		}
 		System.out.print(sb);
 	
