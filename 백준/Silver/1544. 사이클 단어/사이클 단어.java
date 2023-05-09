@@ -12,12 +12,12 @@ public class Main {
 		int cnt = 0;
 		for (int i = 0; i < N; i++) {
 			int pre = set.size();
-			String input = br.readLine();
-			int len = input.length();
+			char[] input = br.readLine().toCharArray();
+			int len = input.length;
 			for (int j = 0; j < len; j++) {
 				StringBuilder sb = new StringBuilder();
 				for (int k = 0; k < len; k++) {
-					sb.append(input.charAt((j + k) % len));
+					sb.append(input[(j + k) % len]);
 				}
 				if (set.contains(sb.toString())) break;
 				set.add(sb.toString());
