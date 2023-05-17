@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
 
 public class Main {
 	
@@ -16,19 +15,17 @@ public class Main {
 		
 		int T = Integer.parseInt(br.readLine());
 		for (int t = 0; t < T; t++) {
-			PriorityQueue<Integer> pq = new PriorityQueue<>();
+			StringBuilder temp = new StringBuilder();
 			int N = Integer.parseInt(br.readLine());
 			int i = 44;
 			while (0 < N) {
 				if (fibo[i] <= N) {
 					N -= fibo[i];
-					pq.offer(fibo[i]);
+					temp.insert(0, fibo[i] + " ");
 				}
 				i--;
 			}
-			
-			while (!pq.isEmpty()) sb.append(pq.poll()).append(" ");
-			sb.append("\n");
+			sb.append(temp).append("\n");
 		}
 		
 		System.out.print(sb);
