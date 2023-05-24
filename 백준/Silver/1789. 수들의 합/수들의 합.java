@@ -7,14 +7,11 @@ public class Main {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		long S = Long.parseLong(br.readLine());
-		long[] dp = new long[100_000];
-		for (int i = 1; i < 100_000; i++) {
-			dp[i] = dp[i - 1] + i;
-		}
-		
 		int i;
+		long sum = 0;
 		for (i = 1; i < 100000; i++) {
-			if (S < dp[i]) break;
+			sum += i;
+			if (S < sum) break;
 		}
 		
 		System.out.print(i - 1);
