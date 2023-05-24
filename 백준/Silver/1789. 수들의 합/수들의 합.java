@@ -7,14 +7,16 @@ public class Main {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		long S = Long.parseLong(br.readLine());
-		int i;
-		long sum = 0;
-		for (i = 1; i < 100000; i++) {
-			sum += i;
-			if (S < sum) break;
+		long l = 1;
+		long r = 100000;
+		while (l < r) {
+			long mid = (l + r) >> 1;
+			long num = (mid * (mid + 1)) >> 1;
+			if (S < num) r = mid;
+			else l = mid + 1;
 		}
 		
-		System.out.print(i - 1);
+		System.out.print(l - 1);
 	
 	}
 	
