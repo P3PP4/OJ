@@ -15,9 +15,11 @@ public class Main {
 			return;
 		}
 		
+		int mod;
 		while (K < N) {
-			if (N % 3 == 2) N--;
-			else N = N / 3 * 2 + (N % 3 == 0 ? 0 : 1);
+			mod = N % 3;
+			if (mod == 2) N--;
+			else N = N / 3 * 2 + (mod == 0 ? 0 : 1);
 			
 			if (--K == 0) {
 				System.out.print("water");
