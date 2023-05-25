@@ -10,16 +10,22 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken());
 		int K = Integer.parseInt(st.nextToken());
-		int[] dp = new int[1000001];
-		dp[1] = 1;
-		for (int i = 2; i < 1000001; i++) {
-			if (dp[i] == 0) dp[i] = dp[i - 1] + 1;
-			
-			int next = i + (i / 2);
-			if (next < 1000001) dp[next] = dp[i] + 1;
+		if (N <= K) {
+			System.out.print("minigimbob");
+			return;
 		}
 		
-		System.out.print(dp[N] <= K ? "minigimbob" : "water");
+		while (K < N) {
+			if (N < 3 || N % 3 == 2) N--;
+			else N = N / 3 * 2 + (N % 3 == 0 ? 0 : 1);
+			
+			if (--K == 0) {
+				System.out.print("water");
+				return;
+			}
+		}
+		
+		System.out.print("minigimbob");
 		
 	}
 	
