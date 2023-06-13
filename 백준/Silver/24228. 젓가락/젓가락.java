@@ -9,9 +9,9 @@ public class Main {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		BigInteger N = new BigInteger(st.nextToken());
-		BigInteger R = new BigInteger(st.nextToken());
-		System.out.print(N.add(R).add(R).subtract(BigInteger.ONE));
+		long N = Long.parseLong(st.nextToken());
+		long R = Long.parseLong(st.nextToken());
+		System.out.print(R * 2 + N - 1);
 	
 	}
 	
