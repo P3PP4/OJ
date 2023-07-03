@@ -16,10 +16,9 @@ public class Main {
 			input[i] = Integer.parseInt(st.nextToken());
 			len += input[i];
 		}
-		Arrays.sort(input);
 		
 		long sum = 0;
-		for (int i = N - 1; i >= 0; i--) {
+		for (int i = 0; i < N; i++) {
 			len -= input[i];
 			sum += len * input[i];
 		}
