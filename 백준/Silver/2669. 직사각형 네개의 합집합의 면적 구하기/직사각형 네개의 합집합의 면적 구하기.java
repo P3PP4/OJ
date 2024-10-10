@@ -8,6 +8,7 @@ public class Main {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean[][] map = new boolean[100][100];
+		int sum = 0;
 		
 		for (int i = 0; i < 4; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
@@ -18,15 +19,11 @@ public class Main {
 			
 			for (int r = sr; r < er; r++) {
 				for (int c = sc; c < ec; c++) {
-					map[r][c] = true;
+					if (!map[r][c]) {
+						map[r][c] = true;
+						sum++;
+					}
 				}
-			}
-		}
-		
-		int sum = 0;
-		for (int i = 0; i < 100; i++) {
-			for (int j = 0; j < 100; j++) {
-				if (map[i][j]) sum++;
 			}
 		}
 		
