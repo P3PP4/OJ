@@ -14,8 +14,8 @@ public class Main {
 		int max = 0;
 		while (st.hasMoreTokens()) {
 			int now = Integer.parseInt(st.nextToken());
-			min = Math.min(min, now);
-			max = Math.max(max, now - min);
+			if (now < min) min = now;
+			if (max < now - min) max = now - min;
 		}
 		System.out.print(max);
 	
