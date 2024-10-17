@@ -9,15 +9,14 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		long[] input = new long[N];
-		long[] ans = new long[N];
-		long sum = input[0] = Integer.parseInt(st.nextToken());
+		long ans = 0;
+		long sum = Integer.parseInt(st.nextToken());
 		for (int i = 1; i < N; i++) {
-			input[i] = Integer.parseInt(st.nextToken());
-			ans[i] = ans[i - 1] + input[i] * sum;
-			sum += input[i];
+			long input = Integer.parseInt(st.nextToken());
+			ans = ans + input * sum;
+			sum += input;
 		}
-		System.out.print(ans[N - 1]);
+		System.out.print(ans);
 	
 	}
 	
