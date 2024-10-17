@@ -10,13 +10,12 @@ public class Main {
 		int N = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		long[] input = new long[N];
-		long[] sum = new long[N];
 		long[] ans = new long[N];
-		input[0] = sum[0] = Integer.parseInt(st.nextToken());
+		long sum = input[0] = Integer.parseInt(st.nextToken());
 		for (int i = 1; i < N; i++) {
 			input[i] = Integer.parseInt(st.nextToken());
-			sum[i] = sum[i - 1] + input[i];
-			ans[i] = ans[i - 1] + input[i] * sum[i - 1];
+			ans[i] = ans[i - 1] + input[i] * sum;
+			sum += input[i];
 		}
 		System.out.print(ans[N - 1]);
 	
