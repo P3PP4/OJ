@@ -9,7 +9,7 @@ public class Main {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		int[] sum = new int[N];
+		long[] sum = new long[N];
 		for (int i = 0; i < N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			int employees = Integer.parseInt(st.nextToken());
@@ -19,8 +19,8 @@ public class Main {
 		}
 		
 		Arrays.sort(sum);
-		int[] add = new int[N];
-		int ans = add[0] = sum[0];
+		long[] add = new long[N];
+		long ans = add[0] = sum[0];
 		for (int i = 1; i < N; i++) {
 			add[i] = add[i - 1] + sum[i];
 			ans += add[i];
