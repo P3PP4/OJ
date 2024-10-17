@@ -11,19 +11,19 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		long[] arr = new long[N];
-		long[] sum = new long[N];
+		long sum = 0;
 		st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 		
 		for (int i = 0; i < M; i++) {
-			sum[M - 1] += arr[i];
+			sum += arr[i];
 		}
-		long max = sum[M - 1];
+		long max = sum;
 		for (int i = M; i < N; i++) {
-			sum[i] = sum[i - 1] - arr[i - M] + arr[i];
-			if (max < sum[i]) max = sum[i];
+			sum = sum - arr[i - M] + arr[i];
+			if (max < sum) max = sum;
 		}
 		System.out.print(max);
 	
