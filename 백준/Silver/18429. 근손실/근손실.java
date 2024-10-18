@@ -19,7 +19,7 @@ public class Main {
 		used = new boolean[N];
 		st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < N; i++) {
-			add[i] = Integer.parseInt(st.nextToken());
+			add[i] = Integer.parseInt(st.nextToken()) - K;
 		}
 		
 		find(0);
@@ -29,20 +29,18 @@ public class Main {
 	}
 	
 	static void find(int cnt) {
-		if (weight < 500) return;
-		
 		if (cnt == N) {
 			ans++;
 			return;
 		}
 		
 		for (int i = 0; i < N; i++) {
-			if (!used[i]) {
+			if (!used[i] && 500 <= weight + add[i]) {
 				used[i] = true;
-				weight += add[i] - K;
+				weight += add[i];
 				find(cnt + 1);
 				used[i] = false;
-				weight -= add[i] - K;
+				weight -= add[i];
 			}
 		}
 	}
