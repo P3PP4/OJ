@@ -27,7 +27,7 @@ public class Main {
 			int weight = Integer.parseInt(st.nextToken());
 			list[to].add(new Road(from, weight));
 		}
-		PriorityQueue<Road> pq = new PriorityQueue<>((o1, o2) -> Long.compare(o1.weight, o2.weight));
+		PriorityQueue<Road> pq = new PriorityQueue<>();
 		st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < K; i++) {
 			int start = Integer.parseInt(st.nextToken());
@@ -60,13 +60,18 @@ public class Main {
 		
 	}
 	
-	static class Road {
+	static class Road implements Comparable<Road> {
 		int to;
 		long weight;
 		
 		public Road(int to, long weight) {
 			this.to = to;
 			this.weight = weight;
+		}
+		
+		@Override
+		public int compareTo(Road o) {
+			return Long.compare(this.weight, o.weight);
 		}
 	}
 	
