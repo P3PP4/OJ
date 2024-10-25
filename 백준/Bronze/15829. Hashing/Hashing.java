@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 
 public class Main {
 	
@@ -7,21 +8,22 @@ public class Main {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int L = Integer.parseInt(br.readLine());
-		long M = 1_234_567_891;
+		BigInteger M = new BigInteger("1234567891");
 		char[] arr = br.readLine().toCharArray();
-		long result = 0;
+		BigInteger result = BigInteger.ZERO;
 		for (int i = 0; i < L; i++) {
-			long l = arr[i] - 'a' + 1;
-			result += (l * pow(i)) % M;
+			BigInteger l = new BigInteger(arr[i] - 'a' + 1 + "");
+			result = result.add(l.multiply(pow(i)));
 		}
-		System.out.print(result);
+		System.out.print(result.mod(M));
 	
 	}
 	
-	static long pow(int n) {
-		long ans = 1;
+	static BigInteger pow(int n) {
+		BigInteger ans = BigInteger.ONE;
+		BigInteger p = new BigInteger("31");
 		for (int i = 0; i < n; i++) {
-			ans *= 31;
+			ans = ans.multiply(p);
 		}
 		return ans;
 	}
